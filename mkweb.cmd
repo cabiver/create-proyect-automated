@@ -1,3 +1,4 @@
+@echo off
 mkdir new-project
 cd new-project
 
@@ -36,6 +37,8 @@ echo ^<body^> >> src/index.html
 echo.  >> src/index.html
 echo ^</body^> >> src/index.html
 echo ^</html^> >> src/index.html
+
+echo happy hacking
 
 
 
