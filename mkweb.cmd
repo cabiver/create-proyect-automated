@@ -1,6 +1,8 @@
 @echo off
-mkdir new-project
-cd new-project
+
+mkdir %1
+cd %1
+
 
 touch pacakage.json
 touch .gitignore
@@ -38,7 +40,10 @@ echo.  >> src/index.html
 echo ^</body^> >> src/index.html
 echo ^</html^> >> src/index.html
 
-echo happy hacking
 
+cd ..
+echo.
+echo happy hacking
+echo.
 
 
