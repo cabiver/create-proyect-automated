@@ -1,20 +1,28 @@
 @echo off
+if [%1]==[] ( 
+set NOMBRE=new-project
+) else ( 
+set NOMBRE=%1
+)
 
-mkdir %1
-cd %1
+mkdir %NOMBRE%
+cd %NOMBRE%
 
-
-touch pacakage.json
+touch package.json
 touch .gitignore
 
-echo { >> pacakage.json
-echo   "scripts": { >> pacakage.json
-echo     "build": "rm -rf dist && vite build", >> pacakage.json
-echo     "deploy": "gh-pages -d dist" >> pacakage.json
-echo   }, >> pacakage.json
-echo   "keywords": [], >> pacakage.json
-echo   "license": "ISC" >> pacakage.json
-echo } >> pacakage.json
+echo { > package.json
+echo   "name": "new-project", >> package.json
+echo   "version": "0.0.0", >> package.json
+echo   "scripts": { >> package.json
+echo     "dev": "vite", >> package.json
+echo     "build": "vite build", >> package.json
+echo     "serve": "vite preview" >> package.json
+echo   }, >> package.json
+echo   "devDependencies": { >> package.json
+echo     "vite": "^2.5.4" >> package.json
+echo   } >> package.json
+echo } >> package.json
 
 echo node_module/ > .gitignore
 echo dist/ >> .gitignore
@@ -25,25 +33,24 @@ touch src/index.js
 touch src/index.css
 touch src/index.html
 
-echo ^<!DOCTYPE^> >> src/index.html
-echo ^<html lang="es"^> >> src/index.html
-echo ^<head^> >> src/index.html
-echo   ^<meta charset="UTF-8"^> >> src/index.html
-echo   ^<meta http-equiv="X-UA-Compatible" content="IE=edge"^> >> src/index.html
-echo   ^<meta name="viewport" content="width=device-width, initial-scale=1.0"^> >> src/index.html
-echo   ^<title^>Document^</title^> >> src/index.html
-echo   ^<link rel="stylesheet" href="./index.css"^> >> src/index.html
-echo   ^<script type="module" src="./index.js"^>^</script^> >> src/index.html
-echo ^</head^> >> src/index.html
-echo ^<body^> >> src/index.html
-echo.  >> src/index.html
-echo ^</body^> >> src/index.html
-echo ^</html^> >> src/index.html
 
+echo ^<!DOCTYPE^> > index.html
+echo ^<html lang="es"^> >> index.html
+echo ^<head^> >> index.html
+echo   ^<meta charset="UTF-8"^> >> index.html
+echo   ^<meta http-equiv="X-UA-Compatible" content="IE=edge"^> >> index.html
+echo   ^<meta name="viewport" content="width=device-width, initial-scale=1.0"^> >> index.html
+echo   ^<title^>Document^</title^> >> index.html
+echo   ^<link rel="stylesheet" href="./src/index.css"^> >> index.html
+echo   ^<script type="module" src="./srsc/index.js"^>^</script^> >> index.html
+echo ^</head^> >> index.html
+echo ^<body^> >> index.html
+echo.  >> index.html
+echo ^</body^> >> index.html
+echo ^</html^> >> index.html
 
-cd ..
 echo.
 echo happy hacking
 echo.
 
-
+npm i
